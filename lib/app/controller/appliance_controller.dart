@@ -4,6 +4,7 @@ import 'package:load_assessment_getx/app/data/model/appliance_model.dart';
 
 class ApplianceController extends GetxController {
   Rx<List<Appliances>> appliances = Rx<List<Appliances>>([]);
+  //List<Appliances> app
 
   @override
   void onInit() {
@@ -20,7 +21,7 @@ class ApplianceController extends GetxController {
     super.onClose();
   }
 
-  final List<Appliances> userAppliances = [
+   final userAppliances = [
     Appliances(
         id: 1,
         name: 'IRON',
@@ -45,11 +46,34 @@ class ApplianceController extends GetxController {
 
   void quantityIncrement(int index) {
     //return qty + 1;
-    userAppliances[index].quantity++;
+    final _app = <Appliances>[];
+    userAppliances.forEach((element) {
+      if(userAppliances[index] == element){
+        element.quantity++;
+        _app.add(element);
+      }else{
+        _app.add(element);
+      }
+    });
+    userAppliances.value = _app;
+
   }
 
-  int quantityDecrement(qty) {
-    return (qty <= 1) ? 1 : qty - 1;
+  void quantityDecrement(int index) {
+   final _app = <Appliances>[];
+   userAppliances.forEach((element) {
+     if(userAppliances[index] == element){
+       if(element.quantity> 1){
+         element.quantity--;
+       }
+       _app.add(element);
+
+     }else{
+       _app.add(element);
+     }
+   });
+   userAppliances.value = _app;
+
   }
   // quantityIncrement(int qty) {
   //   appliances.value = List<Appliances>.from(appliances.value

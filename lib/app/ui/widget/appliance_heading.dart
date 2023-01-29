@@ -1,69 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ApplianceHeading extends StatelessWidget {
   const ApplianceHeading({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
-      Card(
-        child: Container(
-          padding: EdgeInsets.all(10),
-          alignment: Alignment.center,
-
-
-          margin: EdgeInsets.only(bottom: 10),
-          child: Text('APPLIANCES',
-            style: TextStyle(
-                fontSize: 14,
-                fontWeight:
-                FontWeight.bold),
-          ),
-
-          width: 120,
-        ),
+    return Container(
+      width: Get.width,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          customCard("APPLIANCE"),
+          customCard("WATTAGE"),
+          customCard("QUANTITY"),
+          customCard("SELECT"),
+        ],
       ),
-      Card(
-        child: Container(
-          alignment: Alignment.center,
-          padding: EdgeInsets.all(10),
-          margin: EdgeInsets.only(bottom: 10),
-          child: Text('WATTAGE',
-            style: TextStyle(
-                fontSize: 14,
-                fontWeight:
-                FontWeight.bold),
-          ),
-          width: 120,
-        ),
-      ),
-      Card(child: Container(
+    );
+  }
+
+  Widget customCard(String title) {
+    return Card(
+      child: Container(
         alignment: Alignment.center,
-        padding: EdgeInsets.all(10),
-        margin: EdgeInsets.only(bottom: 10),
-        child: Text('QUANTITY',
-          style: TextStyle(
-              fontSize: 14,
-              fontWeight:
-              FontWeight.bold),
-        ),
-        width: 120,
-      ),),
-      Card(
-        child: Container(
-          alignment: Alignment.center,
-          padding: EdgeInsets.all(10),
-          margin: EdgeInsets.only(bottom: 10),
-          child: Text('SELECT',
-            style: TextStyle(
-                fontSize: 14,
-                fontWeight:
-                FontWeight.bold),
+        padding: const EdgeInsets.all(10),
+        margin: const EdgeInsets.only(bottom: 10),
+        child: Text(
+          "$title ",
+          style: const TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
           ),
-          width: 120,
         ),
       ),
-    ],
     );
   }
 }

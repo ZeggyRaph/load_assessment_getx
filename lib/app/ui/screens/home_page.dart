@@ -18,27 +18,27 @@ class HomePage extends StatelessWidget {
         ],
         title: const Text('LOAD ASSESSMENT'),
       ),
-      body: Container(
+      body: SizedBox(
         width: Get.width,
-
         child: ListView(
           scrollDirection: Axis.horizontal,
           shrinkWrap: true,
           children: [
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: ApplianceHeading(),),
-                  Expanded(
-                    flex: 7,
-                    child: ApplianceList(),),
-
-                  //UserAppliance(),
-                ],
-              ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: ApplianceHeading(),
+                ),
+                Expanded(
+                  flex: 7,
+                  child: ApplianceList(),
+                ),
+                //
+                //UserAppliance(),
+              ],
             ),
           ],
         ),
