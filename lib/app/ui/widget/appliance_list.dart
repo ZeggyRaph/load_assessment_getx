@@ -66,11 +66,8 @@ class ApplianceList extends GetView<ApplianceController> {
                               CupertinoIcons.add,
                               size: 12,
                             ),
-                            onPressed: () {
-                              appliancesController.quantityIncrement(index);
-                              print(
-                                  'The quantity is ${appliancesController.userAppliances[index].quantity}');
-                            },
+                            onPressed: () =>
+                                appliancesController.quantityIncrement(index),
                           ),
                         ],
                       ),
